@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "player_answers")
-public class PlayerAnswers extends Auditable{
+public class PlayerAnswer extends Auditable{
     @Getter
     @Setter
     @NotBlank

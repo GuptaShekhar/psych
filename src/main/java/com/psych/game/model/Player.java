@@ -34,5 +34,5 @@ public class Player extends Auditable {
     @ManyToMany(mappedBy = "players")
     @Getter
     @Setter
-    private List<Game> game;
+    private List<Game> games;
 }

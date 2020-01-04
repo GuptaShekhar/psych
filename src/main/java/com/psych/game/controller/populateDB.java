@@ -26,8 +26,8 @@ public class populateDB {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @GetMapping("/add-questions-from-file")
-    public void addQuestionFromFiles() throws IOException {
+    @GetMapping("/add-questions-from-files")
+    public void addQuestionsFromFiles() throws IOException {
         questionRepository.deleteAll();
         for(Map.Entry<String, GameMode> entry: Constants.QA_FILES.entrySet()){
             int questionNumber = 0;
@@ -40,7 +40,8 @@ public class populateDB {
                 q.setGameMode(gameMode);
                 questionRepository.save(q);
                 questionNumber++;
-                if(questionNumber > Constants.MAX_QUESTIONS_TO_READ);
+                if(questionNumber > Constants.MAX_QUESTIONS_TO_READ)
+                    break;
             }
         }
 
@@ -49,11 +50,16 @@ public class populateDB {
 
     @GetMapping("/add-dummy-players")
     public void addDummyPlayers() throws IOException {
-        questionRepository.deleteAll();
+        playerRepository.deleteAll();
+
         Player luffy = new Player();
         luffy.setName("Monkey D. Luffy");
+        luffy.setPicURL("https://i.imgur.com/PrCEBd7.png");
+        luffy.setPsychFaceURL("https://i.imgur.com/SPzynwl.png");
         Player robin = new Player();
-        robin.setName("Mico Robin");
+        robin.setName("Nico Robin");
+        robin.setPicURL("https://i.imgur.com/kB7StJm.png");
+        robin.setPsychFaceURL("https://i.imgur.com/tnJTeaG.png");
 
         playerRepository.save(luffy);
         playerRepository.save(robin);

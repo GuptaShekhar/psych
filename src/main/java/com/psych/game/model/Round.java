@@ -32,5 +32,5 @@ public class Round extends Auditable{
     @ManyToMany
     @Getter
     @Setter
-    private Map<Player, PlayerAnswers> playerAnswers;
+    private Map<Player, PlayerAnswer> playerAnswers;
 }
